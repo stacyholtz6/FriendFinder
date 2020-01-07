@@ -38,7 +38,7 @@
       <div class="form-group">
         <h2><label for="q1">Question 1</label></h2>
         <h4>I make friends easily?</h4>
-        <select class='form-control' id="q1">
+        <select class='form-control chosen-select' id="q1">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -50,7 +50,7 @@
       <div class="form-group">
         <h2><label for="q2">Question 2</label></h2>
         <h4>I have a vivid imagination?</h4>
-        <select class='form-control' id="q2">
+        <select class='form-control chosen-select' id="q2">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -62,7 +62,7 @@
       <div class="form-group">
         <h2><label for="q3">Question 3</label></h2>
         <h4>I worry about things.</h4>
-        <select class='form-control' id="q3">
+        <select class='form-control chosen-select' id="q3">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -74,7 +74,7 @@
       <div class="form-group">
         <h2><label for="q4">Question 4</label></h2>
         <h4>I love large parties.</h4>
-        <select class='form-control' id="q4">
+        <select class='form-control chosen-select' id="q4">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -86,7 +86,7 @@
       <div class="form-group">
         <h2><label for="q5">Question 5</label></h2>
         <h4>I get angry easily.</h4>
-        <select class='form-control' id="q5">
+        <select class='form-control chosen-select' id="q5">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -98,7 +98,7 @@
       <div class="form-group">
         <h2><label for="q6">Question 6</label></h2>
         <h4>I believe in the importance of art?</h4>
-        <select class='form-control' id="q6">
+        <select class='form-control chosen-select' id="q6">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -110,7 +110,7 @@
       <div class="form-group">
         <h2><label for="q7">Question 7</label></h2>
         <h4>I take charge.</h4>
-        <select class='form-control' id="q7">
+        <select class='form-control chosen-select' id="q7">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -122,7 +122,7 @@
       <div class="form-group">
         <h2><label for="q8">Question 8</label></h2>
         <h4>I prefer variety to routine.</h4>
-        <select class='form-control' id="q8">
+        <select class='form-control chosen-select' id="q8">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -134,7 +134,7 @@
       <div class="form-group">
         <h2><label for="q9">Question 9</label></h2>
         <h4>I love excitement.</h4>
-        <select class='form-control' id="q9">
+        <select class='form-control chosen-select' id="q9">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -146,7 +146,7 @@
       <div class="form-group">
         <h2><label for="q10">Question 10</label></h2>
         <h4>I like to solve complex problems.</h4>
-        <select class='form-control' id="10">
+        <select class='form-control chosen-select' id="10">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -157,33 +157,26 @@
       </div>
 
     </form>
+    <button type="button" class="btn btn-primary btn-lg btn-block submit">Block level button</button>
 
-    <!-- trigger modal when sumbit button is clicked -->
-    <!-- Button trigger modal -->
-    <div class="container rules">
-      <div class="row">
-        <div class="col text-center">
-          <button type="button" class="btn btn-primary btn-block" data-toggle="modal" data-target="#rules">
-            Submit
-          </button>
-        </div>
-      </div>
-    </div>
-    <!-- Modal -->
-    <div class="modal fade" id="rules" tabindex="-1" role="dialog" aria-labelledby="rulesTitle" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered" role="document">
+
+    <!--Modal-->
+    <!--________________________________________________-->
+    <div id="resultsModal" class="modal fade" role="dialog">
+      <div class="modal-dialog">
+        <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <h5 class="modal-title" id="rulesTitle">Your Best Match</h5>
-            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-              <span aria-hidden="true">&times;</span>
-            </button>
+            <button type="button" class="close" data-dismiss="modal">&times;</button>
+            <h2 class="modal-title"><strong>MEET YOUR MATCH!</strong></h2>
           </div>
           <div class="modal-body">
-            <p id='match-name'>Name</p>
-            <p id='match-photo'>Link to photo</p>
+            <h2 id="matchname"></h2>
+            <h2 id="display-content"></h2>
+            <img id="matchpic" src="" alt="">
           </div>
           <div class="modal-footer">
+            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
           </div>
         </div>
       </div>
@@ -204,36 +197,65 @@
 <script type='text/javascript'>
   // click event for submit button
   $('.submit').on('click', function (event) {
-    event.preventDefault();
+    // verify form is filled out
+    function validateForm() {
+      var isValid = true;
+      $('.form-control').each(function () {
+        if ($(this).val() === '') {
+          isValid = false;
+        }
+      });
+      return isValid;
+    }
 
-    // get results from from quiz
-    var newFriend = {
-      name: $('#name').val().trim(),
-      photo: $('#photo').val().trim(),
-      scores: [
-        $('#q1').val(),
-        $('#q2').val(),
-        $('#q3').val(),
-        $('#q4').val(),
-        $('#q5').val(),
-        $('#q6').val(),
-        $('#q7').val(),
-        $('#q8').val(),
-        $('#q9').val(),
-        $('#q10').val(),
-      ]
+    // if its filled out
+    // get results from from quiz - create new user
+    if (validateForm() == true) {
+
+
+      var newFriend = {
+        name: $('#name').val().trim(),
+        photo: $('#photo').val().trim(),
+        scores: [
+          $('#q1').val(),
+          $('#q2').val(),
+          $('#q3').val(),
+          $('#q4').val(),
+          $('#q5').val(),
+          $('#q6').val(),
+          $('#q7').val(),
+          $('#q8').val(),
+          $('#q9').val(),
+          $('#q10').val(),
+        ]
+      };
+      // get current URL of website
+      var currentURL = window.location.origin;
+      console.log('newFriend', newFriend);
+      // Ajax posts the data to friends API
+
+      // get results from AJAX post - show best match in modal
+
+      // show modal with the best match
+
+      // clear form after submission
+      $('#name').val('');
+      $('#photo').val('');
+      $('#q1').val('');
+      $('#q2').val('');
+      $('#q3').val('');
+      $('#q4').val('');
+      $('#q5').val('');
+      $('#q6').val('');
+      $('#q7').val('');
+      $('#q8').val('');
+      $('#q9').val('');
+      $('#q10').val('');
+
+    } else {
+      alert('PLEASE COMPLETE ALL FIELDS!')
     };
-    console.log('newFriend', newFriend);
 
-    // logic for calculating quiz resutls
-
-
-
-
-    // post route for data collected
-
-
-  })
-
+  });
 
 </script>
