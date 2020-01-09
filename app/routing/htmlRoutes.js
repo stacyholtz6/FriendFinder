@@ -1,3 +1,5 @@
+// html routes for home and survey pages
+
 const path = require('path');
 
 module.exports = function (app) {

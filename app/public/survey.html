@@ -20,6 +20,8 @@
     crossorigin="anonymous"></script>
   <!-- fontawesome -->
   <script src="https://kit.fontawesome.com/02403185ac.js" crossorigin="anonymous"></script>
+  <!-- local css -->
+  <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
@@ -38,7 +40,7 @@
       <div class="form-group">
         <h2><label for="q1">Question 1</label></h2>
         <h4>I make friends easily?</h4>
-        <select class='form-control chosen-select' id="q1">
+        <select class='form-control' id="q1">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -50,7 +52,7 @@
       <div class="form-group">
         <h2><label for="q2">Question 2</label></h2>
         <h4>I have a vivid imagination?</h4>
-        <select class='form-control chosen-select' id="q2">
+        <select class='form-control' id="q2">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -62,7 +64,7 @@
       <div class="form-group">
         <h2><label for="q3">Question 3</label></h2>
         <h4>I worry about things.</h4>
-        <select class='form-control chosen-select' id="q3">
+        <select class='form-control' id="q3">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -74,7 +76,7 @@
       <div class="form-group">
         <h2><label for="q4">Question 4</label></h2>
         <h4>I love large parties.</h4>
-        <select class='form-control chosen-select' id="q4">
+        <select class='form-control' id="q4">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -86,7 +88,7 @@
       <div class="form-group">
         <h2><label for="q5">Question 5</label></h2>
         <h4>I get angry easily.</h4>
-        <select class='form-control chosen-select' id="q5">
+        <select class='form-control' id="q5">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -98,7 +100,7 @@
       <div class="form-group">
         <h2><label for="q6">Question 6</label></h2>
         <h4>I believe in the importance of art?</h4>
-        <select class='form-control chosen-select' id="q6">
+        <select class='form-control' id="q6">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -110,7 +112,7 @@
       <div class="form-group">
         <h2><label for="q7">Question 7</label></h2>
         <h4>I take charge.</h4>
-        <select class='form-control chosen-select' id="q7">
+        <select class='form-control' id="q7">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -122,7 +124,7 @@
       <div class="form-group">
         <h2><label for="q8">Question 8</label></h2>
         <h4>I prefer variety to routine.</h4>
-        <select class='form-control chosen-select' id="q8">
+        <select class='form-control' id="q8">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -134,7 +136,7 @@
       <div class="form-group">
         <h2><label for="q9">Question 9</label></h2>
         <h4>I love excitement.</h4>
-        <select class='form-control chosen-select' id="q9">
+        <select class='form-control' id="q9">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -146,7 +148,7 @@
       <div class="form-group">
         <h2><label for="q10">Question 10</label></h2>
         <h4>I like to solve complex problems.</h4>
-        <select class='form-control chosen-select' id="10">
+        <select class='form-control' id="q10">
           <option value="" disabled selected>Select your option</option>
           <option value="1">1 (strongly agree)</option>
           <option value="2">2</option>
@@ -157,23 +159,19 @@
       </div>
 
     </form>
-    <button type="button" class="btn btn-primary btn-lg btn-block submit">Block level button</button>
+    <button type="button" id='submit' class="btn btn-primary btn-lg btn-block">Submit</button>
 
-
-    <!--Modal-->
-    <!--________________________________________________-->
-    <div id="resultsModal" class="modal fade" role="dialog">
+    <!-- Modal-->
+    <div id="results-modal" class="modal fade" role="dialog">
       <div class="modal-dialog">
         <!-- Modal content-->
         <div class="modal-content">
           <div class="modal-header">
-            <button type="button" class="close" data-dismiss="modal">&times;</button>
-            <h2 class="modal-title"><strong>MEET YOUR MATCH!</strong></h2>
+            <h2 class="modal-title"><strong>Your Workout Buddy</strong></h2>
           </div>
-          <div class="modal-body">
-            <h2 id="matchname"></h2>
-            <h2 id="display-content"></h2>
-            <img id="matchpic" src="" alt="">
+          <div class=class="modal-body">
+            <h2 id="match-name"></h2>
+            <img class='img-fluid' id="match-photo" src="" alt="best match photo">
           </div>
           <div class="modal-footer">
             <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
@@ -184,7 +182,7 @@
 
     <footer class="footer">
       <div class="container">
-        <p><a href="/api/friends">API Friends List</a> | <a href="#">GitHub
+        <p><a href="/api/friends">API Friends List</a> | <a href="https://github.com/stacyholtz6">GitHub
             Repo</a></p>
       </div>
     </footer>
@@ -196,7 +194,8 @@
 </html>
 <script type='text/javascript'>
   // click event for submit button
-  $('.submit').on('click', function (event) {
+  $('#submit').on('click', function (event) {
+
     // verify form is filled out
     function validateForm() {
       var isValid = true;
@@ -212,7 +211,6 @@
     // get results from from quiz - create new user
     if (validateForm() == true) {
 
-
       var newFriend = {
         name: $('#name').val().trim(),
         photo: $('#photo').val().trim(),
@@ -226,17 +224,26 @@
           $('#q7').val(),
           $('#q8').val(),
           $('#q9').val(),
-          $('#q10').val(),
+          $('#q10').val()
         ]
       };
+
       // get current URL of website
       var currentURL = window.location.origin;
       console.log('newFriend', newFriend);
-      // Ajax posts the data to friends API
+      // AJAX posts the data to friends API
+      $.post(currentURL + '/api/friends', newFriend)
+        .then(function (data) {
+          // put the results in the modal....
+          console.log('data', data);
+          // show modal with best-match....
+          $('#match-name').text(data.name)
+          $('#match-photo').attr('src', data.photo);
 
-      // get results from AJAX post - show best match in modal
+          // show modal with the results
+          $('#results-modal').modal('toggle');
 
-      // show modal with the best match
+        })
 
       // clear form after submission
       $('#name').val('');
