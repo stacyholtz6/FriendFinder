@@ -10,9 +10,9 @@ A match application using Javascript, Express and Node servers.
 
   * Node.js 
   * Express NPM
-    * ![Express](https://www.npmjs.com/package/express)
+    * (https://www.npmjs.com/package/express)
   * Body-Parser NPM
-    * ![Body-Parser](https://www.npmjs.com/package/body-parser)
+    * (https://www.npmjs.com/package/body-parser)
   * Javascript/ JQuery 
   * JSON
   * Bootstrap 
