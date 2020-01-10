@@ -5,7 +5,7 @@ A match application using Javascript, Express and Node servers.
 
 ## Deployed on Heroku 
 
-[https://rocky-plateau-65872.herokuapp.com/]
+https://rocky-plateau-65872.herokuapp.com/
 
 
 
