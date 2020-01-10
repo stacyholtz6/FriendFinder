@@ -46,3 +46,4 @@ A match application using Javascript, Express and Node servers.
 ## Acknowledgments
 
 * Photos from [Unsplash](https://unsplash.com/)
+* Background from [uiGradients](https://uigradients.com/)
