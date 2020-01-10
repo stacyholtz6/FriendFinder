@@ -14,6 +14,9 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json())
 
+// css
+app.use(express.static(path.join(__dirname, "app/public/static")));
+
 // api routes
 require('./app/routing/apiRoutes')(app);
 require('./app/routing/htmlRoutes')(app);

@@ -6,7 +6,7 @@ const friendsArray = [
     scores: [5, 2, 3, 4, 1, 1, 5, 2, 4, 2]
   },
   {
-    name: 'Amanda',
+    name: 'Red',
     photo: 'https://images.unsplash.com/photo-1521078927261-4ca4420ad36a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=800&q=60',
     scores: [1, 4, 5, 3, 5, 5, 1, 3, 2, 2]
   },
