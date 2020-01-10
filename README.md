@@ -16,6 +16,8 @@ A match application using Javascript, Express and Node servers.
   * Javascript/ JQuery 
   * JSON
   * Bootstrap 
+  * Google Fonts
+  * Font Awesome
   * CSS/HTML
 
 ## HOW IT WORKS
